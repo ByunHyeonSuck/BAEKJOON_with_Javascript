@@ -2,7 +2,7 @@ const fs = require("fs");
 const filePath =
   process.platform === "linux"
     ? "/dev/stdin"
-    : "./BAEKJOON_with_Javascript/일반수학1/b2869/input.txt";
+    : "./BAEKJOON_with_Javascript/약수, 배수와 소수/b5086/input.txt";
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
 // console.log(input);
 

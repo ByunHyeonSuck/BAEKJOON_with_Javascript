@@ -1,6 +1,8 @@
 const fs = require("fs");
 const filePath =
-  process.platform === "linux" ? "/dev/stdin" : "./일반수학1/b2745/input.txt";
+  process.platform === "linux"
+    ? "/dev/stdin"
+    : "./BAEKJOON_with_Javascript/일반수학1/b2745/input.txt";
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
 // console.log(input);
 
