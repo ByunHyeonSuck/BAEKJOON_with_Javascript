@@ -6,30 +6,36 @@ const filePath =
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
 // console.log(input);
 
-const testCaseArr = input[0]
-  .trim()
-  .split(" ")
-  .map((item) => +item);
-// console.log(testCaseArr);
+const testCaseArr = [];
+for (let i = 0; i < input.length; i++) {
+  testCaseArr.push(
+    input[i]
+      .trim()
+      .split(" ")
+      .map((item) => +item)
+  );
+}
+// console.log(testCaseArr[0][0]);
 
-solution(testCaseArr[0], testCaseArr[1], testCaseArr[2]);
+solution(testCaseArr);
 
-function solution(A, B, V) {
-  //   let sumDay = 0;
-  //   let lostDate = 0;
-  //   while (sumDay < V) {
-  //     sumDay += A;
-  //     lostDate++;
-  //     if (sumDay >= V) {
-  //       break;
-  //     } else {
-  //       sumDay -= B;
-  //     }
-  //   }
-
-  //   console.log(lostDate);
-
-  // while문을 사용하면 시간초과되므로 시간복잡도를 낮게 하는 풀이방법을 찾아야된다. 수학적 사고를 논하는 문제.
-
-  console.log(Math.ceil((V - B) / (A - B)));
+function solution(testCaseArr) {
+  let i = 0;
+  while (testCaseArr[i][0] != 0 && testCaseArr[i][1] != 0) {
+    if (testCaseArr[i][0] >= testCaseArr[i][1]) {
+      if (testCaseArr[i][0] % testCaseArr[i][1] == 0) {
+        console.log("multiple");
+      } else {
+        console.log("neither");
+      }
+      i++;
+    } else if (testCaseArr[i][0] <= testCaseArr[i][1]) {
+      if (testCaseArr[i][1] % testCaseArr[i][0] == 0) {
+        console.log("factor");
+      } else {
+        console.log("neither");
+      }
+      i++;
+    }
+  }
 }
