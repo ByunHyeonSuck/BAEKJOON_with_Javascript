@@ -2,7 +2,7 @@ const fs = require("fs");
 const filePath =
   process.platform === "linux"
     ? "/dev/stdin"
-    : "./BAEKJOON_with_Javascript/시간복잡도/b24262/input.txt";
+    : "./BAEKJOON_with_Javascript/시간복잡도/b24264/input.txt";
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
 // console.log(input);
 
@@ -12,6 +12,13 @@ const testCaseArr = +input[0];
 solution(testCaseArr);
 
 function solution(testCaseArr) {
-  console.log(1);
-  console.log(0);
+  let count = 0;
+  for (let i = 1; i <= testCaseArr; i++) {
+    for (let j = i + 1; j <= testCaseArr; j++) {
+      count++;
+    }
+  }
+  console.log(count);
+  console.log((testCaseArr * (testCaseArr - 1)) / 2);
+  console.log(2);
 }
